@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+<title>Anvika — 1st Birthday (Pink Theme)</title>
+<meta name="theme-color" content="#FFEFF6">
+
+<!-- Google Font (mobile friendly) -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --accent:#e84a9b;    /* pink accent */
+  --accent-2:#ff7fbf;
+  --muted:#6b6b6b;
+  --card:#ffffff;
+  --bg:#fff6fb;
+  --max-width:420px;
+  --safe-pad:16px;
+  --shadow: 0 8px 22px rgba(0,0,0,0.08);
+  --radius:14px;
+}
+
+/* Basic */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+  -webkit-font-smoothing:antialiased;
+  background:linear-gradient(180deg,#fffafc 0%,var(--bg) 100%);
+  color:#222;
+  -webkit-tap-highlight-color:transparent;
+  -webkit-font-smoothing:antialiased;
+}
+.app{
+  max-width:var(--max-width);
+  margin:0 auto;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  padding-bottom:24px;
+}
+
+/* HERO */
+.hero{
+  position:relative;
+  height:58vh;
+  min-height:320px;
+  display:flex;
+  align-items:flex-end;
+  padding:18px var(--safe-pad) 22px;
+  border-bottom-left-radius:22px;
+  border-bottom-right-radius:22px;
+  overflow:hidden;
+  background-image:
+    linear-gradient(180deg, rgba(232,74,155,0.08) 0%, rgba(255,255,255,0.0) 40%),
+    url('https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop&s=0f4cfa9d9e19b8b9b0b8ea2f6de9a3f2');
+  background-size:cover;
+  background-position:center;
+  box-shadow:var(--shadow);
+}
+
+/* circular avatar overlay (uses original person image - replace if needed) */
+.hero .avatar{
+  position:absolute;
+  right:16px;
+  top:16px;
+  width:84px;
+  height:84px;
+  border-radius:50%;
+  border:3px solid rgba(255,255,255,0.95);
+  background-image: url('https://bd-cdn-0-serve.bigdate.events/heptldher____Catalog-zzzzb~~~~catalog.bigdate.events/temp/person_image__1762534162316.jpeg');
+  background-size:cover;
+  background-position:center;
+  box-shadow:0 8px 26px rgba(0,0,0,0.18);
+}
+
+/* slider wrapper like BigDate */
+.slider-wrap{
+  width:100%;
+  max-width:calc(var(--max-width) - 48px);
+  display:flex;
+  justify-content:flex-start;
+  align-items:center;
+  position:relative;
+  z-index:2;
+  margin-left:0;
+}
+
+/* the visible capsule that holds sliding text */
+.slider-capsule{
+  background:rgba(255,255,255,0.92);
+  border-radius:14px;
+  padding:12px 16px;
+  min-width:220px;
+  box-shadow:0 12px 30px rgba(232,74,155,0.08);
+  overflow:hidden;
+  height:62px;
+  display:flex;
+  align-items:center;
+  position:relative;
+}
+
+/* vertical stack of slides that will translate up */
+.slider-stack{
+  display:flex;
+  flex-direction:column;
+  transform:translateY(0);
+  will-change:transform;
+  animation:slideUp 6s linear infinite;
+}
+
+/* each slide text line */
+.slider-stack .line{
+  min-height:62px;
+  display:flex;
+  align-items:center;
+  font-weight:700;
+  color:var(--accent);
+  font-size:20px;
+  line-height:1;
+  padding:0 6px;
+}
+
+/* slide up keyframes: 3 slides assumed */
+@keyframes slideUp{
+  0%   {transform:translateY(0%);}
+  16.66% {transform:translateY(0%);}   /* show 1st */
+  33.33% {transform:translateY(-100%);}/* move to 2nd */
+  49.99% {transform:translateY(-100%);}/* show 2nd */
+  66.66% {transform:translateY(-200%);}/* move to 3rd */
+  83.33% {transform:translateY(-200%);}/* show 3rd */
+  100% {transform:translateY(0%);}     /* loop */
+}
+
+/* small description under slider */
+.hero .sub{
+  margin-top:8px;
+  color:rgba(255,255,255,0.95);
+  font-weight:500;
+  text-shadow:0 6px 18px rgba(0,0,0,0.24);
+  font-size:14px;
+}
+
+/* countdown chip visible in hero */
+.count-chip{
+  margin-top:10px;
+  display:inline-block;
+  background:rgba(255,255,255,0.98);
+  color:var(--accent);
+  padding:8px 12px;
+  border-radius:12px;
+  font-weight:700;
+  box-shadow:0 10px 26px rgba(0,0,0,0.06);
+}
+
+/* content area */
+.content{
+  padding:14px var(--safe-pad);
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+/* cards */
+.card{
+  background:var(--card);
+  border-radius:var(--radius);
+  padding:14px;
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+
+/* details rows */
+.row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:10px 0;
+  border-bottom:1px dashed #f6f6f6;
+  font-size:15px;
+}
+.row:last-child{border-bottom:0}
+.label{color:var(--muted); font-weight:600;}
+.value{font-weight:700; color:#222; text-align:right;}
+
+/* CTA button */
+.btn{
+  display:inline-block;
+  background:linear-gradient(90deg,var(--accent),var(--accent-2));
+  color:#fff;
+  padding:12px 16px;
+  border-radius:12px;
+  text-decoration:none;
+  font-weight:700;
+  text-align:center;
+  width:100%;
+  margin-top:12px;
+  box-shadow:0 10px 20px rgba(232,74,155,0.14);
+}
+
+/* gallery */
+.gallery{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+.gallery img{
+  width:100%;
+  height:150px;
+  object-fit:cover;
+  border-radius:10px;
+  display:block;
+  box-shadow:0 6px 18px rgba(0,0,0,0.06);
+}
+
+/* thanks */
+.thanks{ text-align:center; color:var(--muted); font-size:14px; padding:12px 8px; }
+
+/* bottom small note */
+.bottom{font-size:13px; color:var(--muted); text-align:center; margin-top:8px;}
+
+/* lightbox */
+#lightbox{
+  position:fixed; inset:0; display:none; align-items:center; justify-content:center; background:rgba(0,0,0,0.85); z-index:9999; padding:18px;
+}
+#lightbox img{max-width:100%; max-height:92vh; border-radius:12px; box-shadow:0 24px 60px rgba(0,0,0,0.6);}
+
+/* responsive tweaks for small devices */
+@media (max-width:420px){
+  .hero{height:56vh; padding:14px 14px 18px}
+  .slider-stack .line{font-size:20px}
+  .slider-capsule{height:60px; padding:10px 14px}
+  .avatar{width:72px;height:72px; right:12px; top:12px}
+  .gallery img{height:130px}
+}
+
+/* ensure no BigDate leftovers show */
+footer, .powered-by-bigdate, .adsbygoogle, .banner, .bigdate, .bd-banner { display:none !important; }
+</style>
+</head>
+<body>
+  <div class="app" role="main" aria-label="Birthday invitation">
+
+    <!-- HERO -->
+    <header class="hero" role="banner" aria-label="Hero invitation">
+      <div class="avatar" aria-hidden="true"></div>
+
+      <div class="slider-wrap" aria-hidden="false" style="width:100%;">
+        <div style="display:flex; flex-direction:column;">
+          <!-- Sliding text capsule -->
+          <div class="slider-capsule" aria-hidden="false">
+            <div class="slider-stack" role="list">
+              <!-- EDIT HERE: change the three lines below to customize hero text -->
+              <div class="line" role="listitem">Happy Birthday 🎉</div>
+              <div class="line" role="listitem">Anvika is turning 1 💗</div>
+              <div class="line" role="listitem">You're invited — 16 Nov 2025</div>
+            </div>
+          </div>
+
+          <div style="margin-top:10px;">
+            <div class="sub" aria-hidden="true">Celebrate with cake, music & joy — 10:00 AM onwards</div>
+            <div class="count-chip" id="chip" aria-live="polite">⏳ Loading...</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="content" role="main">
+
+      <!-- DETAILS CARD -->
+      <section class="card" aria-labelledby="detailsTitle">
+        <h2 id="detailsTitle" style="margin:0 0 8px 0; color:var(--accent)">Event Details</h2>
+        <div class="row"><div class="label">Name</div><div class="value">Anvika</div></div>
+        <div class="row"><div class="label">Date</div><div class="value">16 November 2025</div></div>
+        <div class="row"><div class="label">Time</div><div class="value">10:00 AM</div></div>
+        <div class="row"><div class="label">Venue</div><div class="value">Byalya Madhugiri (T)</div></div>
+
+        <!-- Map link (EDIT HERE if you have a custom link) -->
+        <a class="btn" href="https://www.google.com/maps/place/13.64531217726883,77.27835247239418" target="_blank" rel="noopener">📍 Open in Google Maps</a>
+      </section>
+
+      <!-- COUNTDOWN CARD -->
+      <section class="card" aria-labelledby="countTitle">
+        <h2 id="countTitle" style="margin:0 0 8px 0; color:var(--accent)">Countdown</h2>
+        <div id="bigCount" style="font-weight:700; font-size:16px; text-align:center; color:#222">⏳ Loading...</div>
+      </section>
+
+      <!-- GALLERY -->
+      <section class="card" aria-labelledby="galleryTitle">
+        <h2 id="galleryTitle" style="margin:0 0 8px 0; color:var(--accent)">Gallery</h2>
+        <div class="gallery" id="gallery">
+          <!-- placeholder images - replace src with your photos -->
+          <img src="https://picsum.photos/400/600?1" alt="photo1" data-full="https://picsum.photos/800/1200?1">
+          <img src="https://picsum.photos/400/600?2" alt="photo2" data-full="https://picsum.photos/800/1200?2">
+          <img src="https://picsum.photos/400/600?3" alt="photo3" data-full="https://picsum.photos/800/1200?3">
+          <img src="https://picsum.photos/400/600?4" alt="photo4" data-full="https://picsum.photos/800/1200?4">
+        </div>
+      </section>
+
+      <!-- THANK YOU -->
+      <section class="card thanks" aria-labelledby="thanksTitle">
+        <h2 id="thanksTitle" style="margin:0 0 8px 0; color:var(--accent)">Thank you</h2>
+        <div>We look forward to celebrating with you 💗</div>
+      </section>
+
+      <div class="bottom">No ads • Clean invite • Replace text/images anytime</div>
+    </main>
+  </div>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox" aria-hidden="true">
+    <img id="lightboxImg" src="" alt="gallery image">
+  </div>
+
+<script>
+/* ====== Countdown logic (EDIT event date/time below) ====== */
+/* EDIT HERE: set the event date/time exactly as you want (Timezone = user's device timezone) */
+const EVENT_TS = new Date("November 16, 2025 10:00:00").getTime();
+
+function updateCountdown(){
+  const now = Date.now();
+  const diff = EVENT_TS - now;
+  const chip = document.getElementById('chip');
+  const big = document.getElementById('bigCount');
+
+  if(diff <= 0){
+    chip.textContent = "🎉 The celebration is on!";
+    big.textContent = "🎉 It's today — join the fun!";
+    return;
+  }
+  const d = Math.floor(diff/(1000*60*60*24));
+  const h = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+  const m = Math.floor((diff%(1000*60*60))/(1000*60));
+  const s = Math.floor((diff%(1000*60))/1000);
+
+  chip.textContent = `⏳ ${d}d ${h}h`;
+  big.textContent = `⏳ ${d} Days • ${h} Hrs • ${m} Min • ${s} Sec`;
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+/* ====== Gallery lightbox (no external libs) ====== */
+(function(){
+  const gallery = document.getElementById('gallery');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+
+  gallery.addEventListener('click', (e)=>{
+    const img = e.target.closest('img');
+    if(!img) return;
+    const src = img.dataset.full || img.src;
+    lightboxImg.src = src;
+    lightbox.style.display = 'flex';
+    lightbox.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+  });
+
+  lightbox.addEventListener('click', ()=>{
+    lightbox.style.display = 'none';
+    lightboxImg.src = '';
+    lightbox.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+  });
+})();
+
+/* ====== Accessibility: Respect reduced-motion preference ====== */
+(function(){
+  const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(prefersReduced){
+    const el = document.querySelector('.slider-stack');
+    if(el) el.style.animation = 'none';
+  }
+})();
+</script>
+
+</body>
+</html>
