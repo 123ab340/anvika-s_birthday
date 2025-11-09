@@ -22,25 +22,6 @@
   --radius:14px;
 }
 
-/* PRELOADER */
-#preloader{
-  position:fixed;
-  inset:0;
-  background:#fff6fb;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  z-index:999999;
-}
-.loader-heart{
-  font-size:48px;
-  animation:beat 1.2s infinite;
-}
-@keyframes beat{
-  0%,100% { transform:scale(1); }
-  50% { transform:scale(1.4); }
-}
-
 /* Basic */
 *{box-sizing:border-box}
 body{
@@ -69,7 +50,7 @@ body{
   overflow:hidden;
   background-image:
     linear-gradient(180deg, rgba(232,74,155,0.08) 0%, rgba(255,255,255,0.0) 40%),
-    url('https://bd-cdn-0-serve.bigdate.events/heptldher____Catalog-zzzzb~~~~catalog.bigdate.events/temp/person_image__1762534162316.jpeg');
+    url('https://123ab340.github.io/anvika-s_birthday/hero.jpg');
   background-size:cover;
   background-position:center;
   box-shadow:var(--shadow);
@@ -88,49 +69,13 @@ body{
   animation-iteration-count: infinite;
 }
 @keyframes floatTeddy {
-  0% {
-    transform: translateY(0) rotate(0deg);
-    opacity: 0.8;
-  }
-  100% {
-    transform: translateY(-700px) rotate(360deg);
-    opacity: 0;
-  }
+  0% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
+  100% { transform: translateY(-700px) rotate(360deg); opacity: 0; }
 }
 .teddy.brown { background-image: url('https://i.ibb.co/4p4XYW7/teddy1.png'); }
 .teddy.pink { background-image: url('https://i.ibb.co/ZhS8FtF/teddy2.png'); }
 .teddy.blue { background-image: url('https://i.ibb.co/KWcW7vF/teddy3.png'); }
 .teddy.yellow { background-image: url('https://i.ibb.co/7vGq8vD/teddy4.png'); }
-
-/* Avatar */
-.hero .avatar{
-  position:absolute;
-  right:16px; top:16px;
-  width:84px; height:84px;
-  border-radius:50%;
-  border:3px solid rgba(255,255,255,0.95);
-  background-image:url('https://bd-cdn-0-serve.bigdate.events/heptldher____Catalog-zzzzb~~~~catalog.bigdate.events/temp/person_image__1762534162316.jpeg');
-  background-size:cover;
-  box-shadow:0 8px 26px rgba(0,0,0,0.18);
-}
-
-/* Sliding Happy Birthday Text */
-.happy-birthday {
-  position: absolute;
-  top: 20px;
-  left: -100%;
-  font-size: 28px;
-  font-weight: 700;
-  color: #fff;
-  text-shadow: 0 4px 12px rgba(0,0,0,0.5);
-  white-space: nowrap;
-  animation: slide 5s linear infinite;
-}
-@keyframes slide {
-  0% { left: -100%; }
-  50% { left: 50%; transform: translateX(-50%); }
-  100% { left: 100%; }
-}
 
 /* STATIC TITLE */
 .birthday-title{
@@ -156,6 +101,9 @@ body{
   border-radius:12px;
   font-weight:700;
   box-shadow:0 10px 26px rgba(0,0,0,0.06);
+  text-align:center;
+  margin-left:auto;
+  margin-right:auto;
 }
 
 /* Content */
@@ -191,7 +139,7 @@ body{
   grid-template-columns:1fr 1fr;
   gap:10px;
 }
-.gallery img{width:100%; height:150px; object-fit:cover; border-radius:10px;}
+.gallery img{width:100%; height:150px; object-fit:cover; border-radius:10px; cursor:pointer;}
 
 .thanks{text-align:center; color:var(--muted);}
 .bottom{text-align:center; color:var(--muted); font-size:13px;}
@@ -208,21 +156,29 @@ body{
 @media(max-width:420px){
   .hero { height:50vh; padding:14px; }
   .birthday-title { font-size:20px; padding:10px 14px; }
-  .happy-birthday { font-size:20px; top:10px; }
   .gallery img{height:120px;}
 }
 </style>
+
+<!-- Open Graph / Social Media Preview -->
+<meta property="og:title" content="Anvika — 1st Birthday 🎉">
+<meta property="og:description" content="Celebrate Anvika's 1st Birthday with cake, music & joy!">
+<meta property="og:image" content="https://123ab340.github.io/anvika-s_birthday/hero.jpg">
+<meta property="og:url" content="https://123ab340.github.io/">
+<meta property="og:type" content="website">
+
+<!-- Optional: Twitter card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Anvika — 1st Birthday 🎉">
+<meta name="twitter:description" content="Celebrate Anvika's 1st Birthday with cake, music & joy!">
+<meta name="twitter:image" content="https://123ab340.github.io/anvika-s_birthday/hero.jpg">
+
 </head>
 
 <body>
-
-<div id="preloader"><div class="loader-heart">🎂</div></div>
-
 <div class="app">
 
 <header class="hero">
-  <div class="avatar"></div>
-  
   <!-- Floating Teddies -->
   <div class="teddy brown" style="left:10%; animation-duration:6s; animation-delay:0s;"></div>
   <div class="teddy pink" style="left:25%; animation-duration:7s; animation-delay:1s;"></div>
@@ -230,9 +186,6 @@ body{
   <div class="teddy yellow" style="left:55%; animation-duration:6.5s; animation-delay:0.5s;"></div>
   <div class="teddy brown" style="left:70%; animation-duration:7.5s; animation-delay:1.5s;"></div>
   <div class="teddy blue" style="left:85%; animation-duration:8s; animation-delay:2.5s;"></div>
-
-  <!-- Happy Birthday Text -->
-  
 
   <div style="width:100%; text-align:center; z-index:2;">
     <h1 class="birthday-title">Anvika is turning 1 💗</h1>
@@ -244,7 +197,6 @@ body{
 </header>
 
 <main class="content">
-
 <section class="card">
   <h2 style="color:var(--accent)">Event Details</h2>
   <div class="row"><div class="label">Name</div><div class="value">Anvika</div></div>
@@ -262,11 +214,16 @@ body{
 <section class="card">
   <h2 style="color:var(--accent)">Gallery</h2>
   <div class="gallery" id="gallery">
-    <img src="https://picsum.photos/400/600?1" data-full="https://picsum.photos/800/1200?1">
-    <img src="https://picsum.photos/400/600?2" data-full="https://picsum.photos/800/1200?2">
-    <img src="https://picsum.photos/400/600?3" data-full="https://picsum.photos/800/1200?3">
-    <img src="https://picsum.photos/400/600?4" data-full="https://picsum.photos/800/1200?4">
+    <img src="https://123ab340.github.io/anvika-s_birthday/photo1.jpg"
+         data-full="https://123ab340.github.io/anvika-s_birthday/photo1.jpg" loading="lazy">
+    <img src="https://123ab340.github.io/anvika-s_birthday/photo2.jpg"
+         data-full="https://123ab340.github.io/anvika-s_birthday/photo2.jpg" loading="lazy">
+    <img src="https://123ab340.github.io/anvika-s_birthday/photo3.jpg"
+         data-full="https://123ab340.github.io/anvika-s_birthday/photo3.jpg" loading="lazy">
+    <img src="https://123ab340.github.io/anvika-s_birthday/photo1.jpg"
+         data-full="https://123ab340.github.io/anvika-s_birthday/photo1.jpg" loading="lazy">
   </div>
+  
 </section>
 
 <section class="card thanks">
@@ -318,15 +275,10 @@ document.getElementById("gallery").onclick = e=>{
 };
 document.getElementById("lightbox").onclick = ()=>document.getElementById("lightbox").style.display="none";
 
-// Preloader + Play Song
+// Play Song
 window.addEventListener("load",()=>{
-  const preloader = document.getElementById("preloader");
-  preloader.style.opacity="0";
-  setTimeout(()=>{
-    preloader.style.display="none";
-    const song = document.getElementById("birthdaySong");
-    song.play().catch(e => console.log("Autoplay blocked:", e));
-  },400);
+  const song = document.getElementById("birthdaySong");
+  song.play().catch(e => console.log("Autoplay blocked:", e));
 });
 </script>
 
